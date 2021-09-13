@@ -5,9 +5,12 @@
  */
 package game;
 
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  *
- * @author pupil
+ * @author Melnikov
  */
 public class GAME {
 
@@ -15,7 +18,26 @@ public class GAME {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        int attempt = 0;
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        int number = random.nextInt(9-0+1)+0;
+        System.out.print("Программа запомнила число от 0 до 9, угадай! ");
+        for(int i = 0; i < 3; i++){
+            int userNumber = scanner.nextInt();
+            if(number == userNumber){
+                System.out.println("Ура! Ты выиграл!!!");
+                break;
+            }else{
+                if(attempt < 2){
+                    System.out.println(":(, неправильно. Попробуй еще раз: ");
+                }else{
+                    System.out.println(":(, ты проиграл");
+                }
+            } 
+            attempt++;
+        }
+    
     }
     
 }
